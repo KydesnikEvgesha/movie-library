@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd" changeLogId="dacc59c9-e3b3-4afc-8f88-2e949374623e">
+
+    <changeSet author="Evgeniy Kravchenko" id="MV-2-InsertFilms" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <insert tableName="t_film">
+            <column name="name" value="Голодные игры"/>
+            <column name="description" value="Будущее. Деспотичное государство ежегодно устраивает показательные игры на выживание"/>
+            <column name="type" value="FULL"/>
+            <column name="release_date" valueDate="2012-03-12"/>
+        </insert>
+        <insert tableName="t_film">
+            <column name="name" value="Голодные игры: И вспыхнет пламя"/>
+            <column name="description" value="Сумев выжить на безжалостных Голодных играх, Китнисс Эвердин и Пит Мелларк возвращаются домой."/>
+            <column name="type" value="FULL"/>
+            <column name="release_date" valueDate="2014-03-14"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
