@@ -7,10 +7,10 @@ import javax.persistence.*
 @Table(name = "t_film")
 class Film(
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id : Long = 0,
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", length = 255, nullable = false)
     val name : String = "",
 
     @Column(name = "type")
