@@ -6,12 +6,18 @@ import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
 import org.springframework.aop.support.AopUtils
 import org.springframework.stereotype.Component
+import ru.evgeniykravchenko.movielibrary.common.annotation.LogExecution
 
 @Aspect
 @Component
 class LogAspect {
 
-    @Suppress("TooGenericExceptionCaught")
+    /**
+     * Логирование вызываемых функций. Работает над теми методами где указана аннотация [LogExecution]
+     *
+     * @param joinPoint точка вызова метода
+     * @return результат вызова метода
+     */
     @Around("@annotation(ru.evgeniykravchenko.movielibrary.common.annotation.LogExecution)")
     fun logExecutionTime(joinPoint: ProceedingJoinPoint): Any {
         val logger = KotlinLogging.logger(AopUtils.getTargetClass(joinPoint.`this`).toString())

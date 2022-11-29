@@ -25,7 +25,6 @@ class ExceptionHandlerController : ResponseEntityExceptionHandler() {
         request: WebRequest,
         status: HttpStatus,
         customMessage: String? = null,
-        data: List<Data>? = null,
         printStackTrace: Boolean = false
     ): ResponseEntity<Any> {
         if (printStackTrace) logger.error(ex.message, ex) else logger.error(ex.message)
@@ -36,8 +35,7 @@ class ExceptionHandlerController : ResponseEntityExceptionHandler() {
                 status = status.value(),
                 error = status.reasonPhrase,
                 message = customMessage ?: ex.message.orEmpty(),
-                path = (request as ServletWebRequest).request.servletPath,
-                data = data
+                path = (request as ServletWebRequest).request.servletPath
             )
         )
     }

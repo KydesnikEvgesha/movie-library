@@ -2,4 +2,4 @@ databaseChangeLog:
   - include:
       file: db/changelog/MV-1/create-model.xml
   - include:
-      file: db/changelog/MV-1/insert-films.xml
+      file: db/changelog/MV-1/insert-movies.xml
