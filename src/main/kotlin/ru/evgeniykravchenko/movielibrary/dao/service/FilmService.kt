@@ -5,6 +5,7 @@ import com.linecorp.kotlinjdsl.spring.data.SpringDataQueryFactory
 import com.linecorp.kotlinjdsl.spring.data.listQuery
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import ru.evgeniykravchenko.movielibrary.common.annotation.LogExecution
 import ru.evgeniykravchenko.movielibrary.dao.repository.FilmRepository
 import ru.evgeniykravchenko.movielibrary.domain.Film
 import ru.evgeniykravchenko.movielibrary.domain.FilmType
@@ -41,6 +42,7 @@ class FilmService(
         }.map { it.mapToDto() }
     }
 
+    @LogExecution
     fun getById(id: Long): FilmDto {
         val film = filmRepository.findByIdOrNull(id) ?: throw NoSuchElementException("Not found movie with id $id")
         return film.mapToDto()
