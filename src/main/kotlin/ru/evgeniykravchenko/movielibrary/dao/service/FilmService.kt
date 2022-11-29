@@ -3,7 +3,6 @@ package ru.evgeniykravchenko.movielibrary.dao.service
 import com.linecorp.kotlinjdsl.querydsl.expression.col
 import com.linecorp.kotlinjdsl.spring.data.SpringDataQueryFactory
 import com.linecorp.kotlinjdsl.spring.data.listQuery
-import com.linecorp.kotlinjdsl.spring.data.singleQuery
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import ru.evgeniykravchenko.movielibrary.dao.repository.FilmRepository
@@ -43,7 +42,20 @@ class FilmService(
     }
 
     fun getById(id: Long): FilmDto {
-        val film = filmRepository.findByIdOrNull(id)?: throw NoSuchElementException("Not found movie with id $id")
+        val film = filmRepository.findByIdOrNull(id) ?: throw NoSuchElementException("Not found movie with id $id")
         return film.mapToDto()
+    }
+
+    fun insertFilmsIntoLibrary(films: List<FilmDto>) {
+        filmRepository.saveAll(
+            films.map {
+                Film(
+                    name = it.name,
+                    description = it.description,
+                    type = FilmType.valueOf(it.type),
+                    releaseDate = it.releaseDate
+                )
+            }
+        )
     }
 }

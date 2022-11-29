@@ -9,7 +9,7 @@ import java.time.LocalDate
  */
 data class FilmDto(
     val name: String = "",
-    val type: FilmType = FilmType.FULL,
+    val type: String = "",
     val description: String = "",
     val releaseDate: LocalDate = LocalDate.now()
 ) : Serializable
