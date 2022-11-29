@@ -7,8 +7,8 @@
     http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
     http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd" changeLogId="dacc59c9-e3b3-4afc-8f88-2e949374623e">
 
-    <changeSet author="Evgeniy Kravchenko" id="MV-1-CreateFilmTable">
-        <createTable tableName="t_film" remarks="Таблица для хранения данных о фильмах">
+    <changeSet author="Evgeniy Kravchenko" id="MV-1-CreateMovieTable">
+        <createTable tableName="t_movie" remarks="Таблица для хранения данных о пленках">
             <column name="id" type="bigint" autoIncrement="true" remarks="Внутренний идентификатор в системе">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>

@@ -1,0 +1,15 @@
+### Добавить фильмы
+POST http://localhost:8080/movie-api/
+Content-Type: application/json
+
+[
+	{
+		"name":"test",
+		"description":"test",
+		"type":"FULL",
+		"releaseDate":"2012-12-12"
+	}
+]
+
+###
+

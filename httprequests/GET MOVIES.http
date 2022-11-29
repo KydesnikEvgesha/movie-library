@@ -1,0 +1,53 @@
+### Возвращает все фильмы
+GET http://localhost:8080/movie-api/movies
+Content-Type: application/json
+
+{}
+
+### Возвращает все полнометражные фильмы
+GET http://localhost:8080/movie-api/movies
+Content-Type: application/json
+
+{
+  "movieQuery": [
+    {
+      "fieldName": "type",
+      "value": "FULL"
+    }
+  ]
+}
+
+### Возвращает все короткометражные фильмы
+GET http://localhost:8080/movie-api/movies
+Content-Type: application/json
+
+{
+  "movieQuery": [
+    {
+      "fieldName": "type",
+      "value": "SHORT"
+    }
+  ]
+}
+
+### Возвращает все сериалы
+GET http://localhost:8080/movie-api/movies
+Content-Type: application/json
+
+{
+  "movieQuery": [
+    {
+      "fieldName": "type",
+      "value": "SERIES"
+    }
+  ]
+}
+
+### Пагинация
+GET http://localhost:8080/movie-api/movies
+Content-Type: application/json
+
+{
+  "offset": 0,
+  "limit": 3
+}
