@@ -15,4 +15,5 @@ class FilmController(
     }
 
     override fun getMovieById(id: Long): FilmDto = filmService.getById(id)
+    override fun insertMovies(films: List<FilmDto>) = filmService.insertFilmsIntoLibrary(films)
 }

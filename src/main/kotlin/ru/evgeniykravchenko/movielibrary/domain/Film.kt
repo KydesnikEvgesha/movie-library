@@ -26,7 +26,7 @@ class Film(
 ) {
     fun mapToDto(): FilmDto = FilmDto(
         name,
-        type,
+        type.description,
         description,
         releaseDate
     )
